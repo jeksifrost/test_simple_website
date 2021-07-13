@@ -1,13 +1,25 @@
 {% extends 'main/layout.html' %}
 
 {% block title %}
-    Главная страница
+    {{ title }}
 {% endblock %}
 
 {% block content %}
     <div class="features">
-        <h1>Main page</h1>
+        <h1>{{ title }}</h1>
         <p>Lorem ipsum</p>
         <button class="btn btn-warning">About us</button>
+
+        {% for el in values %}
+            {% if el == 'Hello' %}
+                {% filter upper %}
+                    <p>{{ el }}</p>
+                {% endfilter %}
+            {% endif %}
+        {% endfor %}
+
+        {% for el in obj %}
+            <p>{{ el }}</p>
+        {% endfor %}
     </div>
 {% endblock %}
